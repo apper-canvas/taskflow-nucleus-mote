@@ -314,7 +314,8 @@ const MainFeature = ({ projectId }) => {
                       {/* Priority badge */}
                       {task.priority && priorityConfig[task.priority] && (
                         <span className={`text-xs px-2 py-1 rounded-full flex items-center gap-1 ${priorityConfig[task.priority].color}`}>
-                          <priorityConfig[task.priority].icon className="h-3 w-3" />
+                          {/* Properly render the dynamic component */}
+                          {React.createElement(priorityConfig[task.priority].icon, { className: "h-3 w-3" })}
                           {priorityConfig[task.priority].label}
                         </span>
                       )}
@@ -322,7 +323,8 @@ const MainFeature = ({ projectId }) => {
                       {/* Status badge */}
                       {task.status && statusConfig[task.status] && (
                         <span className={`text-xs px-2 py-1 rounded-full flex items-center gap-1 ${statusConfig[task.status].color}`}>
-                          <statusConfig[task.status].icon className="h-3 w-3" />
+                          {/* Properly render the dynamic component */}
+                          {React.createElement(statusConfig[task.status].icon, { className: "h-3 w-3" })}
                           {statusConfig[task.status].label}
                         </span>
                       )}
